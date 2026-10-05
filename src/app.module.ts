@@ -2,8 +2,9 @@ import { Module } from '@nestjs/common';
 import { createObserveModule } from '@nestjs/observe';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
-import { HealthModule } from './health/health.module.js';
+import { HealthModule } from './modules/health/health.module.js';
 import { ConfigModule } from '@nestjs/config';
+import { TenantsModule } from './modules/tenants/tenants.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -20,6 +21,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
       isGlobal: true,
     }),
     HealthModule,
+    TenantsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
